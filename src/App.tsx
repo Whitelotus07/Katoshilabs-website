@@ -88,7 +88,7 @@ const App: React.FC = () => {
             </button>
           </nav>
           {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4 space-x-3.5">
+            <div className="md:hidden mt-4 space-y-4">
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
@@ -100,9 +100,9 @@ const App: React.FC = () => {
           )}
         </header>
 
-        <main className ="container mx-auto px-4 py-12">
+        <main className="container mx-auto px-4 py-12">
           <section id="home" className="text-center mb-20">
-            <h1 className="text-5xl font-bold mb-6 animate-text-glow">
+            <h 1 className="text-5xl font-bold mb-6 animate-text-glow">
               Innovating the Future of Software
             </h1>
             <p className="text-xl mb-8 text-neon-blue">
@@ -193,7 +193,7 @@ const App: React.FC = () => {
             </a>
           </section>
 
-          <section id="terms" className="mb-20">
+          <section id="terms" className="mb- 20">
             <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Terms of Use</h2>
             <div className="bg-space-gray p-8 rounded-lg shadow-neon">
               <p className="text-lg mb-4">
