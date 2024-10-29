@@ -30,7 +30,7 @@
 .loading-text {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 @keyframes rotate {
