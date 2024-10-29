@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon } from 'lucide-react';
 import Loading from './Loading'; // Import the Loading component
+import BinaryBackground from './BinaryBackground';
+
 
 const BinaryBackground = () => {
   // ... existing BinaryBackground code
