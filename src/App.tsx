@@ -1,13 +1,8 @@
-// src/App.tsx
+
 import React, { useState, useEffect } from 'react';
-import { Code, Cpu, Globe, Menu, X, Music, Hexagon } from 'lucide-react';
+import { Code, Cpu, Globe, Menu, X, Music, Hexagon, Facebook, Twitter, Instagram, LinkedIn } from 'lucide-react'; // Import social media icons
 import Loading from './Loading'; // Import the Loading component
-import BinaryBackground from './BinaryBackground';
-
-
-const BinaryBackground = () => {
-  // ... existing BinaryBackground code
-};
+import BinaryBackground from './BinaryBackground'; // Import BinaryBackground
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300">
@@ -58,7 +53,7 @@ const App: React.FC = () => {
               className="md:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              { isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </nav>
           {isMenuOpen && (
@@ -119,9 +114,21 @@ const App: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { icon: <Code size={48} />, title: 'Custom Software Development' },
-                { icon: <Cpu size={48} />, title: 'AI & Machine Learning' },
-                { icon: <Globe size={48} />, title: 'Web & Mobile Applications' },
+                {
+                  icon: <Code size={48} />,
+                  title: 'Custom Software Development',
+                  description: 'We specialize in creating tailor-made software solutions that perfectly align with your business goals. Our team of expert developers utilizes the latest technologies to build scalable and efficient applications that enhance productivity and drive growth.',
+                },
+                {
+                  icon: <Cpu size={48} />,
+                  title: 'AI & Machine Learning',
+                  description: 'Unlock the potential of your data with our AI and machine learning services. We design intelligent systems that not only analyze vast amounts of data but also provide actionable insights, automate processes, and enhance decision-making capabilities.',
+                },
+                {
+                  icon: <Globe size={48} />,
+                  title: 'Web & Mobile Applications',
+                  description: 'We create responsive and user-friendly web and mobile applications tailored to your specific needs. Our designs ensure a seamless user experience across all devices, while our robust back-end systems guarantee security and performance.',
+                },
               ].map((service, index) => (
                 <div
                   key={index}
@@ -129,8 +136,9 @@ const App: React.FC = () => {
                 >
                   <div className="text-neon-blue mb-4 flex justify-center animate-float">{service.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                  <p className="text-gray-400 mb-4">{service.description}</p>
                   <p className="text-gray-400">
-                    Leveraging cutting-edge technologies to deliver innovative solutions.
+                    Our dedicated team is committed to delivering high-quality services that exceed your expectations. Let's collaborate to bring your vision to life!
                   </p>
                 </div>
               ))}
@@ -150,7 +158,7 @@ const App: React.FC = () => {
                 turn visionary ideas into reality, driving the future of technology forward.
               </p>
             </div>
- </section>
+          </section>
 
           <section id="contact" className="text-center">
             <h2 className="text-3xl font-bold mb-8 animate-text-glow">Get in Touch</h2>
@@ -167,8 +175,32 @@ const App: React.FC = () => {
         </main>
 
         <footer className="bg-space-gray py-8 mt-12">
-          <div className="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Katoshi Labs Ltd. All rights reserved.</p>
+          <div className="container mx-auto flex justify-between items-center px-4">
+            <div className="flex flex-col space-y-2">
+              <a href="/terms" className="text-gray-300 hover:text-white transition-colors duration-300">Terms of Use</a>
+              <a href="/privacy" className="text-gray-300 hover:text-white transition-colors duration-300">Privacy Policy</a>
+              <a href="/blog" className="text-gray-300 hover:text-white transition-colors duration-300">Blog </a>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <Hexagon size={48} className="text-white animate-pulse" />
+              <p className="text-gray-300 text-sm">&copy; 2024 Katoshi Labs</p>
+            </div>
+
+            <div className="flex space-x-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <Facebook size={24} className="text-gray-300 hover:text-white transition-colors duration-300" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <Twitter size={24} className="text-gray-300 hover:text-white transition-colors duration-300" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <Instagram size={24} className="text-gray-300 hover:text-white transition-colors duration-300" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <LinkedIn size={24} className="text-gray-300 hover:text-white transition-colors duration-300" />
+              </a>
+            </div>
           </div>
         </footer>
       </div>
