@@ -1,11 +1,9 @@
-
+// App.tsx
 import React, { useState, useEffect } from 'react';
-import Loading from './Loading';
+import Loading from './Loading'; // Ensure this component is implemented
 import BinaryBackground from './BinaryBackground';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon } from 'lucide-react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import TermsOfUse from './TermsOfUse';
-import PrivacyPolicy from './PrivacyPolicy';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const NavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
   <Link to={to} className="text-white hover:text-neon-blue transition-colors duration-300">
@@ -56,8 +54,6 @@ const App: React.FC = () => {
               <Logo />
               <div className="hidden md:flex space-x-6">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/terms-of-use">Terms of Use</NavLink>
-                <NavLink to="/privacy-policy">Privacy Policy</NavLink>
                 <NavLink to="#products">Products</NavLink>
                 <NavLink to="#services">Services</NavLink>
                 <NavLink to="#about">About</NavLink>
@@ -73,8 +69,6 @@ const App: React.FC = () => {
             {isMenuOpen && (
               <div className="md:hidden mt-4 space-y-4 space-x-3.5">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/terms-of-use">Terms of Use</NavLink>
-                <NavLink to="/privacy-policy">Privacy Policy</NavLink>
                 <NavLink to="#products">Products</NavLink>
                 <NavLink to="#services">Services</NavLink>
                 <NavLink to="#about">About</NavLink>
@@ -100,10 +94,10 @@ const App: React.FC = () => {
             </section>
 
             <section id="products" className="mb-20">
-              <h2 className="text -3xl font-bold mb-8 text-center animate-text-glow">Our Products</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Our Products</h2>
               <div className="bg-space-gray p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300 shadow-neon">
                 <div className="flex items-center justify-center mb-6">
-                  <Music size={64} className="text-neon-blue animate-spin-slow" />
+                  <Music size={64} className="text-neon-blue animate-spin -slow" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3>
                 <p className="text-lg mb-4">
