@@ -7,7 +7,7 @@ const Loading: React.FC = () => {
   return (
     <div className="loading-container">
       <div className="hexagon-wrapper">
-        <Hexagon size={100} className="loading-hexagon animate-pulse" />
+        <Hexagon size={100} className="loading-hexagon spin-slow" />
       </div>
       <p className="loading-text">Katoshi Labs</p>
     </div>
