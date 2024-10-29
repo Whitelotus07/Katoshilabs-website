@@ -182,7 +182,7 @@ const App: React.FC = () => {
               Ready to bring your ideas to life? Let's create something amazing together.
             </p>
             <a
-              href="mailto:contact@katoshilabs.com"
+              href="mailto:katoshilabs@gmail.com"
               className="bg-neon-blue text-deep-space px-8 py-3 rounded-full font-semibold hover:bg-white transition-colors duration-300 animate-pulse"
             >
               Contact Us
