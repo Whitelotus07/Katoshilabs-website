@@ -77,6 +77,8 @@ const App: React.FC = () => {
               <NavLink href="#services">Services</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
+              <NavLink href="#terms">Terms of Use</NavLink>
+              <NavLink href="#privacy">Privacy Policy</NavLink>
             </div>
             <button
               className="md:hidden text-white"
@@ -92,11 +94,13 @@ const App: React.FC = () => {
               <NavLink href="#services">Services</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
+              <NavLink href="#terms">Terms of Use</NavLink>
+              <NavLink href="#privacy">Privacy Policy</NavLink>
             </div>
           )}
         </header>
 
-        <main className="container mx-auto px-4 py-12">
+        <main className ="container mx-auto px-4 py-12">
           <section id="home" className="text-center mb-20">
             <h1 className="text-5xl font-bold mb-6 animate-text-glow">
               Innovating the Future of Software
@@ -187,6 +191,34 @@ const App: React.FC = () => {
             >
               Contact Us
             </a>
+          </section>
+
+          <section id="terms" className="mb-20">
+            <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Terms of Use</h2>
+            <div className="bg-space-gray p-8 rounded-lg shadow-neon">
+              <p className="text-lg mb-4">
+                Please read these terms of use carefully before using our website or services.
+              </p>
+              <p className="text-lg">
+                By accessing or using our website or services, you agree to be bound by these
+                terms of use. If you do not agree to these terms of use, please do not use our
+                website or services.
+              </p>
+            </div>
+          </section>
+
+          <section id="privacy" className="mb-20">
+            <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Privacy Policy</h2>
+            <div className="bg-space-gray p-8 rounded-lg shadow-neon">
+              <p className="text-lg mb-4">
+                We are committed to protecting your privacy and maintaining the confidentiality
+                of your personal information.
+              </p>
+              <p className="text-lg">
+                This privacy policy explains how we collect, use, and disclose your personal
+                information when you use our website or services.
+              </p>
+            </div>
           </section>
         </main>
 
