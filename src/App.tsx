@@ -192,7 +192,7 @@ const App: React.FC = () => {
 
         <footer className="bg-space-gray py-8 mt-12">
           <div className="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Katoshi Labs. All rights reserved.</p>
+            <p>&copy; 2024 Katoshi Labs Ltd. All rights reserved.</p>
           </div>
         </footer>
       </div>
