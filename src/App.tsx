@@ -1,4 +1,4 @@
-
+// src/App.tsx
 import React, { useState, useEffect } from 'react';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon, Facebook, Twitter, Instagram } from 'lucide-react'; // Removed LinkedIn
 import Loading from './Loading'; // Import the Loading component
@@ -87,7 +87,7 @@ const App: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Our Products</h2>
             <div className="bg-space-gray p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300 shadow-neon">
               <div className="flex items-center justify-center mb-6">
-                <Music size={64} className="text-neon-blue animate-spin-slow" />
+                <Music size={64} class Nam ename="text-neon-blue animate-spin-slow" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3>
               <p className="text-lg mb-4">
@@ -168,7 +168,7 @@ const App: React.FC = () => {
                 </li>
               </ul>
               <a
-                href="mailto:info@katoshi.com"
+                href="mailto:katoshilabs@gmail.com"
                 className="bg-neon-blue text-deep-space px-8 py-3 rounded-full font-semibold hover:bg-white transition-colors duration-300 animate-pulse"
               >
                 Contact Us
