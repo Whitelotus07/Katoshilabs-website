@@ -1,8 +1,11 @@
-
+// src/App.tsx
 import React, { useState, useEffect } from 'react';
-import Loading from './Loading';
-import BinaryBackground from './BinaryBackground';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon } from 'lucide-react';
+import Loading from './Loading'; // Import the Loading component
+
+const BinaryBackground = () => {
+  // ... existing BinaryBackground code
+};
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300">
@@ -32,7 +35,7 @@ const App: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return <Loading />; // Show loading component while loading
   }
 
   return (
@@ -53,7 +56,7 @@ const App: React.FC = () => {
               className="md:hidden text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              { isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </nav>
           {isMenuOpen && (
@@ -68,7 +71,7 @@ const App: React.FC = () => {
         </header>
 
         <main className="container mx-auto px-4 py-12">
-          <section id=" home" className="text-center mb-20">
+          <section id="home" className="text-center mb-20">
             <h1 className="text-5xl font-bold mb-6 animate-text-glow">
               Innovating the Future of Software
             </h1>
@@ -145,7 +148,7 @@ const App: React.FC = () => {
                 turn visionary ideas into reality, driving the future of technology forward.
               </p>
             </div>
-          </section>
+ </section>
 
           <section id="contact" className="text-center">
             <h2 className="text-3xl font-bold mb-8 animate-text-glow">Get in Touch</h2>
@@ -158,7 +161,7 @@ const App: React.FC = () => {
             >
               Contact Us
             </a>
-          </ section>
+          </section>
         </main>
 
         <footer className="bg-space-gray py-8 mt-12">
