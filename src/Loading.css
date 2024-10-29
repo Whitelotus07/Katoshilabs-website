@@ -1,8 +1,8 @@
 
 :root {
-  --primary-color: #0f0; /* Green */
+  --primary-color: #white; /* Green */
   --secondary-color: #4a90e2; /* Blue */
-  --background-color: #000; /* Black background */
+  --background-color: #neon-blue; /* Black background */
 }
 
 .loading-container {
