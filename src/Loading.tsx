@@ -7,9 +7,9 @@ const Loading: React.FC = () => {
   return (
     <div className="loading-container">
       <div className="hexagon-wrapper">
-        <Hexagon size={100} className="loading-hexagon white spin-slow" />
+        <Hexagon size={100} className="loading-hexagon Hexagon-white spin-slow" />
       </div>
-      <p className="loading-text text-white animate-pulse gradient">Katoshi Labs</p>
+      <p className="loading-text text-white animate-pulse">Katoshi Labs</p>
     </div>
   );
 };
