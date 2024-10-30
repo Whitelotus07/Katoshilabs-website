@@ -37,7 +37,6 @@ body, html {
 }
 
 .loading-text {
-  font-size: 2rem; /* Larger text size */
   font-weight: bold; /* Bold text */
   color: var(--primary-color); /* Primary color for text */
 }
@@ -83,9 +82,5 @@ body, html {
 @media (max-width: 768px) {
   .loading-text {
     font-size: 1.5rem; /* Smaller text size for mobile */
-  }
-
-  .loading-hexagon {
-    size: 80; /* Smaller hexagon for mobile */
   }
 }
