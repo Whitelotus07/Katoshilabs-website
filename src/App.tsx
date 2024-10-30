@@ -90,7 +90,7 @@ const App: React.FC = () => {
                 <Music size={64} className="text-neon-blue animate-spin-slow" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3>
-              <p className="text-lg mb-4">
+              <p className="text-lg mb- 4">
                 Ledi AI is our cutting-edge music generator and distributor software. It leverages advanced AI algorithms to create unique, high-quality music tracks and streamlines the distribution process for artists and labels.
               </p>
               <ul className="list-disc list-inside text-gray-300 mb-6">
@@ -163,8 +163,10 @@ const App: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="flex justify-center mb-4">
               <Logo className="mr-4" /> {/* Footer logo with gradient and animation */}
-              <p className="text-lg text-gray-400">&copy; 2024 Katoshi Labs Ltd. All rights reserved.</p>
             </div>
+            <p className="text-lg text-gray-400 text-center mb-4">
+              &copy; 2024 Katoshi Labs Ltd. All rights reserved.
+            </p>
             <ul className="flex justify-center mb-4">
               <li className="mr-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -181,9 +183,9 @@ const App: React.FC = () => {
                   Blog
                 </a>
               </li>
-            </ul>
+            </ul >
             <ul className="flex justify-center mb-4">
-              <li className ="mr-4">
+              <li className="mr-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                   <Facebook size={24} />
                 </a>
