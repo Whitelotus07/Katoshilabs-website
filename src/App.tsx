@@ -58,7 +58,7 @@ const App: React.FC = () => {
             </button>
           </nav>
           {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4">
+            <div className="md:hidden mt-4 space-y-2">
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
@@ -91,8 +91,8 @@ const App: React.FC = () => {
               <div className="flex items-center justify-center mb-6">
                 <Music size={64} className="text-neon-blue animate-spin-slow" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3>
-              <p className ="text-lg mb-4">
+              <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3 >
+              <p className="text-lg mb-4">
                 Ledi AI is our cutting-edge music generator and distributor software. It leverages advanced AI algorithms to create unique, high-quality music tracks and streamlines the distribution process for artists and labels.
               </p>
               <ul className="list-disc list-inside text-gray-300 mb-6">
@@ -153,13 +153,6 @@ const App: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="flex justify-center mb-8">
-              <button
-                className="bg-neon-blue text-deep-space px-6 py-2 rounded-full font-semibold hover:bg-white transition-colors duration-300"
-              >
-                Enroll Now
-              </button>
-            </div>
           </section>
 
           <section id="about" className="mb-20">
@@ -184,7 +177,7 @@ const App: React.FC = () => {
           </section>
 
           <section id="contact" className="text-center">
-            <h2 className="text-3xl font-bold mb-8 animate-text-glow">Get in Touch</h2>
+            <h2 className="text-3xl font-bold mb-8 animate -text-glow">Get in Touch</h2>
             <p className="text-xl mb-8 text-neon-blue">
               Ready to bring your ideas to life? Let's create something amazing together.
             </p>
