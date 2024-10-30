@@ -46,6 +46,7 @@ const App: React.FC = () => {
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
+              <NavLink href="#academy">Academy</NavLink> {/* New Academy Link */}
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </div>
@@ -61,6 +62,7 @@ const App: React.FC = () => {
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
+              <NavLink href="#academy">Academy</NavLink> {/* New Academy Link */}
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </div>
@@ -130,6 +132,29 @@ const App: React.FC = () => {
             </div>
           </section>
 
+          <section id="academy" className="mb-20"> {/* New Academy Section */}
+            <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Katoshi Labs Academy</h2>
+            <p className="text-lg mb-8 text-neon-blue">
+              Learn full-stack development with our expert-led courses and workshops.
+            </p>
+            <div className="bg-space-gray p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300 shadow-neon">
+              <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Course Catalog</h3>
+              <ul className="list-disc list-inside text-gray-300 mb-6">
+                <li>Full-Stack Development with React and Node.js</li>
+                <li>AI and Machine Learning with Python and TensorFlow</li>
+                <li>Web Development with HTML, CSS, and JavaScript</li>
+              </ul>
+              <div className="text-center">
+                <a
+                  href="#contact"
+                  className="bg-neon-blue text-deep-space px-6 py-2 rounded-full font-semibold hover:bg-white transition-colors duration-300"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </section>
+
           <section id="about" className="mb-20">
             <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">About Katoshi Labs</h2>
             <div className="bg-space-gray p-8 rounded-lg shadow-neon">
@@ -138,11 +163,17 @@ const App: React.FC = () => {
                 blockchain, AI, and cloud technologies to create transformative solutions for
                 businesses worldwide.
               </p>
+              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-lg">
-                Our team of passionate developers, designers, and strategists work tirelessly to
-                turn visionary ideas into reality, driving the future of technology forward.
+                To empower businesses and individuals with cutting-edge technology solutions,
+                fostering innovation and growth in the digital age.
               </p>
-            </div>
+              <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+              <p className="text-lg">
+                To become a leading global technology company, driving positive change and
+                shaping the future of software development.
+              </p>
+            </div >
           </section>
 
           <section id="contact" className="text-center">
