@@ -46,7 +46,7 @@ const App: React.FC = () => {
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
-              <NavLink href="#academy">Academy</NavLink> {/* New Academy Link */}
+              <NavLink href="#academy">Academy</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </div>
@@ -58,11 +58,11 @@ const App: React.FC = () => {
             </button>
           </nav>
           {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4 space-x-3.5">
+            <div className="md:hidden mt-4 space-y-4">
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
-              <NavLink href="#academy">Academy</NavLink> {/* New Academy Link */}
+              <NavLink href="#academy">Academy</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </div>
@@ -92,7 +92,7 @@ const App: React.FC = () => {
                 <Music size={64} className="text-neon-blue animate-spin-slow" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-center text-neon-blue">Ledi AI</h3>
-              <p className="text-lg mb- 4">
+              <p className ="text-lg mb-4">
                 Ledi AI is our cutting-edge music generator and distributor software. It leverages advanced AI algorithms to create unique, high-quality music tracks and streamlines the distribution process for artists and labels.
               </p>
               <ul className="list-disc list-inside text-gray-300 mb-6">
@@ -132,7 +132,7 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          <section id="academy" className="mb-20"> {/* New Academy Section */}
+          <section id="academy" className="mb-20">
             <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Katoshi Labs Academy</h2>
             <p className="text-lg mb-8 text-neon-blue">
               Learn full-stack development with our expert-led courses and workshops.
@@ -152,6 +152,13 @@ const App: React.FC = () => {
                   Learn More
                 </a>
               </div>
+            </div>
+            <div className="flex justify-center mb-8">
+              <button
+                className="bg-neon-blue text-deep-space px-6 py-2 rounded-full font-semibold hover:bg-white transition-colors duration-300"
+              >
+                Enroll Now
+              </button>
             </div>
           </section>
 
@@ -173,7 +180,7 @@ const App: React.FC = () => {
                 To become a leading global technology company, driving positive change and
                 shaping the future of software development.
               </p>
-            </div >
+            </div>
           </section>
 
           <section id="contact" className="text-center">
@@ -214,7 +221,7 @@ const App: React.FC = () => {
                   Blog
                 </a>
               </li>
-            </ul >
+            </ul>
             <ul className="flex justify-center mb-4">
               <li className="mr-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
