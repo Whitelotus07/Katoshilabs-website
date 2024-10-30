@@ -1,8 +1,16 @@
+/* src/Loading.css */
 
 :root {
-  --primary-color: #00f3ff; /* Green */
-  --secondary-color: #0a0a1f; /* Blue */
-  --background-color: #1a1a2f; /* Black background */
+  --primary-color: #00f3ff; /* Neon blue */
+  --secondary-color: #0a0a1f; /* Dark blue */
+  --background-start: #1a1a2f; /* Dark background */
+  --background-end: #0a0a1f; /* Lighter background for gradient */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .loading-container {
@@ -10,9 +18,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: var(--background-color);
+  height: 100vh; /* Full viewport height for centering */
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
   color: var(--primary-color);
+  animation: backgroundChange 5s ease infinite; /* Background color change animation */
 }
 
 .hexagon-wrapper {
@@ -24,20 +33,59 @@
 }
 
 .loading-hexagon {
-  animation: rotate 1.5s linear infinite;
+  animation: rotate 1.5s linear infinite; /* Continuous rotation */
 }
 
 .loading-text {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary-color);
+  font-size: 2rem; /* Larger text size */
+  font-weight: bold; /* Bold text */
+  color: var(--primary-color); /* Primary color for text */
 }
 
+/* Animation for rotating the hexagon */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Background color change animation */
+@keyframes backgroundChange {
+  0% {
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  }
+  50% {
+    background: linear-gradient(135deg, var(--background-end), var(--background-start));
+  }
+  100% {
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  }
+}
+
+/* Optional: Add a pulse effect to the text */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite; /* Add pulse animation */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 1.5rem; /* Smaller text size for mobile */
+  }
+
+  .loading-hexagon {
+    size: 80; /* Smaller hexagon for mobile */
   }
 }
