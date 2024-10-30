@@ -57,7 +57,7 @@ const App: React.FC = () => {
             </button>
           </nav>
           {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-2">
+            <div className="md:hidden mt-4 space-y-2 space-x-3.5">
               <NavLink href="#home">Home</NavLink>
               <NavLink href="#products">Products</NavLink>
               <NavLink href="#services">Services</NavLink>
