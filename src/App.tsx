@@ -153,7 +153,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </nav>
           {isMenuOpen && (
             <div className="md:hidden mt-4 bg-space-gray rounded-lg p-4">
-              <nav className="flex flex-col space-y-2 space-x-2">
+              <nav className="flex flex-col space-y-2 space-x-4">
                 <NavLink to="/" onClick={handleNavClick}>Home</NavLink>
                 <NavLink to="/#products" onClick={handleNavClick}>Products</NavLink>
                 <NavLink to="/#services" onClick={handleNavClick}>Services</NavLink>
