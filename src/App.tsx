@@ -186,7 +186,7 @@ const App: React.FC = () => {
                 </a>
               </li>
  <li className="mr-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href="./Blog" className="text-gray-400 hover:text-white transition-colors duration-300">
                   Blog
                 </a>
               </li>
