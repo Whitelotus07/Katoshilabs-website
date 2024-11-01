@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
-import { Code, Cpu, Globe, Menu, X, Music, Hexagon, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Code, Cpu, Globe, Menu, X, Music, Hexagon } from 'lucide-react';
 import Loading from './Loading';
 import BinaryBackground from './BinaryBackground';
 import Blog from './Blog';
@@ -119,9 +119,8 @@ const MainContent: React.FC = () => (
     </section>
   </main>
 );
-const App: React.FC = () => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   const handleNavClick = () => {
@@ -129,20 +128,8 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <div className="min-h-screen bg-deep-space text-white font-sans">
@@ -155,47 +142,81 @@ const App: React.FC = () => {
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <NavLink to="/">Home</NavLink>
-              <NavLink to="/#products">Products</NavLink> <NavLink to="/#services">Services</NavLink>
+              <NavLink to="/#products">Products</NavLink>
+              <NavLink to="/#services">Services</NavLink>
               <NavLink to="/blog">Blog</NavLink>
               <NavLink to="/#about">About</NavLink>
               <NavLink to="/#contact">Contact</NavLink>
             </div>
             <div className="md:hidden flex items-center">
               <Menu size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(true)} />
-              {isMenuOpen && (
-                <div className="absolute top-0 right-0 w-full h-screen bg-deep-space text-white flex flex-col justify-center items-center">
-                  <X size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(false)} />
-                  <NavLink to="/" onClick={handleNavClick}>
-                    Home
-                  </NavLink>
-                  <NavLink to="/#products" onClick={handleNavClick}>
-                    Products
-                  </NavLink>
-                  <NavLink to="/#services" onClick={handleNavClick}>
-                    Services
-                  </NavLink>
-                  <NavLink to="/blog" onClick={handleNavClick}>
-                    Blog
-                  </NavLink>
-                  <NavLink to="/#about" onClick={handleNavClick}>
-                    About
-                  </NavLink>
-                  <NavLink to="/#contact" onClick={handleNavClick}>
-                    Contact
-                  </NavLink>
-                </div>
-              )}
             </div>
           </nav>
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 bg-space-gray rounded-lg p-4">
+              <nav className="flex flex-col space-y-2">
+                <NavLink to="/" onClick={handleNavClick}>Home</NavLink>
+                <NavLink to="/#products" onClick={handleNavClick}>Products</NavLink>
+                <NavLink to="/#services" onClick={handleNavClick}>Services</NavLink>
+                <NavLink to="/blog" onClick={handleNavClick}>Blog</NavLink>
+                <NavLink to="/#about" onClick={handleNavClick}>About</NavLink>
+                <NavLink to="/#contact" onClick={handleNavClick}>Contact</NavLink>
+                <button onClick={() => setIsMenuOpen(false)} className="text-white hover:text-neon-blue">
+                  <X size={24} />
+                </button>
+              </nav>
+            </div>
+          )}
         </header>
-        <Router>
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
-        </Router>
+        {children}
+        <footer className="bg-space-gray py-8 mt-12">
+          {/* Footer content */}
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex justify-center space-x-4 mb-4">
+              <a href="https://www.facebook.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Facebook size={24} className="text-white hover:text-neon-blue" />
+              </a>
+              <a href="https://www.instagram.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Instagram size={24} className="text-white hover:text-neon-blue" />
+              </a>
+              <a href="https://twitter.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Twitter size={24} className="text-white hover:text-neon-blue" />
+              </a>
+            </div>
+            <p className="text-gray-400 text-center">
+              &copy; 2023 Katoshi Labs. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 
