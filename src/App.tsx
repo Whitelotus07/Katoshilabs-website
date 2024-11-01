@@ -89,8 +89,7 @@ const MainContent: React.FC = () => (
         ))}
       </div>
     </section>
-
-    <section id="about" className="mb-20">
+        <section id="about" className="mb-20">
       <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">About Katoshi Labs</h2>
       <div className="bg-space-gray p-8 rounded-lg shadow-neon">
         <p className="text-lg mb-4">
@@ -155,7 +154,7 @@ const App: React.FC = () => {
                 <NavLink href="#products">Products</NavLink>
                 <NavLink href="#services">Services</NavLink>
                 <NavLink href="#about">About</NavLink>
-                 <NavLink href="#contact">Contact</NavLink>
+                <NavLink href="#contact">Contact</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
               </div>
               <button
