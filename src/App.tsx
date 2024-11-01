@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon, Facebook, Instagram, Twitter } from 'lucide-react';
 import Loading from './Loading';
 import BinaryBackground from './BinaryBackground';
 import Blog from './Blog';
 
-const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => (
-  href.startsWith('#') ? (
-    <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300" onClick={onClick}>
-      {children}
-    </a>
-  ) : (
-    <Link to={href} className="text-white hover:text-neon-blue transition-colors duration-300" onClick={onClick}>
-      {children}
-    </Link>
-  )
+const NavLink: React.FC<{ to: string; children: React.ReactNode; onClick?: () => void }> = ({ to, children, onClick }) => (
+  <Link to={to} className="text-white hover:text-neon-blue transition-colors duration-300" onClick={onClick}>
+    {children}
+  </Link>
 );
 
 const Logo: React.FC = () => (
@@ -128,6 +122,7 @@ const MainContent: React.FC = () => (
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
@@ -141,48 +136,66 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
   if (loading) {
     return <Loading />;
   }
 
   return (
-    <Router>
-      <div className="min-h-screen bg-deep-space text-white font-sans">
-        <BinaryBackground />
-        <div className="relative z-10">
-          <header className="container mx-auto px-4 py-6">
-            <nav className="flex justify-between items-center">
+    <div className="min-h-screen bg-deep-space text-white font-sans">
+      <BinaryBackground />
+      <div className="relative z-10">
+        <header className="container mx-auto px-4 py-6">
+          <nav className="flex justify-between items-center">
+            <Link to="/">
               <Logo />
-              <div className="hidden md:flex items-center space-x-8">
-                <NavLink href="/#home" onClick={handleNavClick}>Home</NavLink>
-                <NavLink href="/#products" onClick={handleNavClick}>Products</NavLink>
-                <NavLink href="/#services" onClick={handleNavClick}>Services</NavLink>
-                <NavLink href="/#about" onClick={handleNavClick}>About</NavLink>
-                <NavLink href="/#contact" onClick={handleNavClick}>Contact</NavLink>
-              </div>
-              <div className="flex items-center md:hidden">
-                <Menu size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(true)} />
-                {isMenuOpen && (
-                  <div className="absolute top-0 right-0 w-full h-screen bg-deep-space text-white font-sans">
-                    <div className="container mx-auto px-4 py-6">
-                      <nav className="flex flex-col justify-center items-center">
-                        <NavLink href="/#home" onClick={handleNavClick}>Home</NavLink>
-                        <NavLink href="/#products" onClick={handleNavClick}>Products</NavLink>
-                        <NavLink href="/#services" onClick={handleNavClick}>Services</NavLink>
-                        <NavLink href="/#about" onClick={handleNavClick}>About</NavLink>
-                        <NavLink href="/#contact" onClick={handleNavClick}>Contact</NavLink>
-                        <X size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(false)} />
-                      </nav>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </nav>
-          </header>
-          <MainContent />
-        </div>
+            </Link>
+            <div className="hidden md:flex items-center space-x-8">
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/#products">Products</NavLink> <NavLink to="/#services">Services</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
+              <NavLink to="/#about">About</NavLink>
+              <NavLink to="/#contact">Contact</NavLink>
+            </div>
+            <div className="md:hidden flex items-center">
+              <Menu size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(true)} />
+              {isMenuOpen && (
+                <div className="absolute top-0 right-0 w-full h-screen bg-deep-space text-white flex flex-col justify-center items-center">
+                  <X size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(false)} />
+                  <NavLink to="/" onClick={handleNavClick}>
+                    Home
+                  </NavLink>
+                  <NavLink to="/#products" onClick={handleNavClick}>
+                    Products
+                  </NavLink>
+                  <NavLink to="/#services" onClick={handleNavClick}>
+                    Services
+                  </NavLink>
+                  <NavLink to="/blog" onClick={handleNavClick}>
+                    Blog
+                  </NavLink>
+                  <NavLink to="/#about" onClick={handleNavClick}>
+                    About
+                  </NavLink>
+                  <NavLink to="/#contact" onClick={handleNavClick}>
+                    Contact
+                  </NavLink>
+                </div>
+              )}
+            </div>
+          </nav>
+        </header>
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+        </Router>
       </div>
-    </Router>
+    </div>
   );
 };
 
