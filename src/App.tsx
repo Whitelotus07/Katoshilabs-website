@@ -22,7 +22,6 @@ const Logo: React.FC = () => (
 
 const MainContent: React.FC = () => (
   <main className="container mx-auto px-4 py-12">
-    {/* Home section */}
     <section id="home" className="text-center mb-20">
       <h1 className="text-5xl font-bold mb-6 animate-text-glow">
         Innovating the Future of Software
@@ -38,7 +37,6 @@ const MainContent: React.FC = () => (
       </a>
     </section>
 
-    {/* Products section */}
     <section id="products" className="mb-20">
       <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Our Products</h2>
       <div className="bg-space-gray p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300 shadow-neon">
@@ -65,9 +63,7 @@ const MainContent: React.FC = () => (
         </div>
       </div>
     </section>
-
-    {/* Services section */}
-    <section id="services" className="mb-20">
+        <section id="services" className="mb-20">
       <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
@@ -87,7 +83,6 @@ const MainContent: React.FC = () => (
       </div>
     </section>
 
-    {/* About section */}
     <section id="about" className="mb-20">
       <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">About Katoshi Labs</h2>
       <div className="bg-space-gray p-8 rounded-lg shadow-neon">
@@ -109,7 +104,6 @@ const MainContent: React.FC = () => (
       </div>
     </section>
 
-    {/* Contact section */}
     <section id="contact" className="text-center">
       <h2 className="text-3xl font-bold mb-8 animate-text-glow">Get in Touch</h2>
       <p className="text-xl mb-8 text-neon-blue">
@@ -124,7 +118,6 @@ const MainContent: React.FC = () => (
     </section>
   </main>
 );
-
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -150,44 +143,68 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <NavLink to="/">Home</NavLink>
               <NavLink to="/#products">Products</NavLink>
               <NavLink to="/#services">Services</NavLink>
-               <NavLink to="/#about">About</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
+              <NavLink to="/#about">About</NavLink>
               <NavLink to="/#contact">Contact</NavLink>
             </div>
-            <div className="md:hidden">
-              <Menu size={32} className="text-white" onClick={() => setIsMenuOpen(true)} />
-              {isMenuOpen && (
-                <div className="absolute top-0 left-0 w-full h-screen bg-deep-space z-10">
-                  <div className="container mx-auto px-4 py-6">
-                    <nav className="flex flex-col justify-center items-center">
-                      <NavLink to="/" onClick={handleNavClick}>
-                        Home
-                      </NavLink>
-                      <NavLink to="/#products" onClick={handleNavClick}>
-                        Products
-                      </NavLink>
-                      <NavLink to="/#services" onClick={handleNavClick}>
-                        Services
-                      </NavLink>
-                      <NavLink to="/#about" onClick={handleNavClick}>
-                        About
-                      </NavLink>
-                      <NavLink to="/#contact" onClick={handleNavClick}>
-                        Contact
-                      </NavLink>
-                    </nav>
-                  </div>
-                </div>
-              )}
+            <div className="md:hidden flex items-center">
+              <Menu size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(true)} />
             </div>
           </nav>
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 bg-space-gray rounded-lg p-4">
+              <nav className="flex flex-col space-y-2">
+                <NavLink to="/" onClick={handleNavClick}>Home</NavLink>
+                <NavLink to="/#products" onClick={handleNavClick}>Products</NavLink>
+                <NavLink to="/#services" onClick={handleNavClick}>Services</NavLink>
+                <NavLink to="/blog" onClick={handleNavClick}>Blog</NavLink>
+                <NavLink to="/#about" onClick={handleNavClick}>About</NavLink>
+                <NavLink to="/#contact" onClick={handleNavClick}>Contact</NavLink>
+                <button onClick={() => setIsMenuOpen(false)} className="text-white hover:text-neon-blue">
+                  <X size={24} />
+                </button>
+              </nav>
+            </div>
+          )}
         </header>
-        <main>{children}</main>
+        {children}
+        <footer className="bg-space-gray py-8 mt-12">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex justify-center space-x-4 mb-4">
+              <a href="https://www.facebook.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Facebook size={24} className="text-white hover:text-neon-blue" />
+              </a>
+              <a href="https://www.instagram.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Instagram size={24} className="text-white hover:text-neon-blue" />
+              </a>
+              <a href="https://twitter.com/katoshilabs" target="_blank" rel="noreferrer">
+                <Twitter size={24} className="text-white hover:text-neon-blue" />
+              </a>
+            </div>
+            <p className="text-gray-400 text-center">
+              &copy; 2023 Katoshi Labs. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   );
 };
-
 const App: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <Router>
       <Layout>
