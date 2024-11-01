@@ -154,8 +154,8 @@ const App: React.FC = () => {
                 <NavLink href="#home">Home</NavLink>
                 <NavLink href="#products">Products</NavLink>
                 <NavLink href="#services">Services</NavLink>
-                <NavLink href="#about">About</Nav L
-                <NavLink href="#contact">Contact</NavLink>
+                <NavLink href="#about">About</NavLink>
+                 <NavLink href="#contact">Contact</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
               </div>
               <button
@@ -166,7 +166,7 @@ const App: React.FC = () => {
               </button>
             </nav>
             {isMenuOpen && (
-              <div className="md:hidden mt-4 space-y-2 space-x-3.5">
+              <div className="md:hidden mt-4 space-y-2">
                 <NavLink href="#home">Home</NavLink>
                 <NavLink href="#products">Products</NavLink>
                 <NavLink href="#services">Services</NavLink>
@@ -185,7 +185,7 @@ const App: React.FC = () => {
           <footer className="bg-space-gray py-8 mt-12">
             <div className="container mx-auto px-4">
               <div className="flex justify-center mb-4">
-                <Logo className="mr-4" />
+                <Logo />
               </div>
               <p className="text-lg text-gray-400 text-center mb-4">
                 &copy; 2024 Katoshi Labs Ltd. All rights reserved.
