@@ -5,13 +5,13 @@ import Loading from './Loading';
 import BinaryBackground from './BinaryBackground';
 import Blog from './Blog';
 
-const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
+const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void }> = ({ href, children, onClick }) => (
   href.startsWith('#') ? (
-    <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300">
+    <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300" onClick={onClick}>
       {children}
     </a>
   ) : (
-    <Link to={href} className="text-white hover:text-neon-blue transition-colors duration-300">
+    <Link to={href} className="text-white hover:text-neon-blue transition-colors duration-300" onClick={onClick}>
       {children}
     </Link>
   )
@@ -89,7 +89,8 @@ const MainContent: React.FC = () => (
         ))}
       </div>
     </section>
-        <section id="about" className="mb-20">
+
+    <section id="about" className="mb-20">
       <h2 className="text-3xl font-bold mb-8 text-center animate-text-glow">About Katoshi Labs</h2>
       <div className="bg-space-gray p-8 rounded-lg shadow-neon">
         <p className="text-lg mb-4">
@@ -124,10 +125,13 @@ const MainContent: React.FC = () => (
     </section>
   </main>
 );
-
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -149,82 +153,33 @@ const App: React.FC = () => {
           <header className="container mx-auto px-4 py-6">
             <nav className="flex justify-between items-center">
               <Logo />
-              <div className="hidden md:flex space-x-6">
-                <NavLink href="#home">Home</NavLink>
-                <NavLink href="#products">Products</NavLink>
-                <NavLink href="#services">Services</NavLink>
-                <NavLink href="#about">About</NavLink>
-                <NavLink href="#contact">Contact</NavLink>
-                <NavLink href="/blog">Blog</NavLink>
+              <div className="hidden md:flex items-center space-x-8">
+                <NavLink href="/#home" onClick={handleNavClick}>Home</NavLink>
+                <NavLink href="/#products" onClick={handleNavClick}>Products</NavLink>
+                <NavLink href="/#services" onClick={handleNavClick}>Services</NavLink>
+                <NavLink href="/#about" onClick={handleNavClick}>About</NavLink>
+                <NavLink href="/#contact" onClick={handleNavClick}>Contact</NavLink>
               </div>
-              <button
-                className="md:hidden text-white"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              <div className="flex items-center md:hidden">
+                <Menu size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(true)} />
+                {isMenuOpen && (
+                  <div className="absolute top-0 right-0 w-full h-screen bg-deep-space text-white font-sans">
+                    <div className="container mx-auto px-4 py-6">
+                      <nav className="flex flex-col justify-center items-center">
+                        <NavLink href="/#home" onClick={handleNavClick}>Home</NavLink>
+                        <NavLink href="/#products" onClick={handleNavClick}>Products</NavLink>
+                        <NavLink href="/#services" onClick={handleNavClick}>Services</NavLink>
+                        <NavLink href="/#about" onClick={handleNavClick}>About</NavLink>
+                        <NavLink href="/#contact" onClick={handleNavClick}>Contact</NavLink>
+                        <X size={32} className="text-white hover:text-neon-blue" onClick={() => setIsMenuOpen(false)} />
+                      </nav>
+                    </div>
+                  </div>
+                )}
+              </div>
             </nav>
-            {isMenuOpen && (
-              <div className="md:hidden mt-4 space-y-2">
-                <NavLink href="#home">Home</NavLink>
-                <NavLink href="#products">Products</NavLink>
-                <NavLink href="#services">Services</NavLink>
-                <NavLink href="#about">About</NavLink>
-                <NavLink href="#contact">Contact</NavLink>
-                <NavLink href="/blog">Blog</NavLink>
-              </div>
-            )}
           </header>
-
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
-
-          <footer className="bg-space-gray py-8 mt-12">
-            <div className="container mx-auto px-4">
-              <div className="flex justify-center mb-4">
-                <Logo />
-              </div>
-              <p className="text-lg text-gray-400 text-center mb-4">
-                &copy; 2024 Katoshi Labs Ltd. All rights reserved.
-              </p>
-              <ul className="flex justify-center mb-4">
-                <li className="mr-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Terms of Use
-                  </a>
-                </li>
-                <li className="mr-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li className="mr-4">
-                  <NavLink href="/blog" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Blog
-                  </NavLink>
-                </li>
-              </ul>
-              <ul className="flex justify-center mb-4">
-                <li className="mr-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    <Facebook size={24} />
-                  </a>
-                </li>
-                <li className="mr-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    <Instagram size={24} />
-                  </a>
-                </li>
-                <li className="mr-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    <Twitter size={24} />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </footer>
+          <MainContent />
         </div>
       </div>
     </Router>
