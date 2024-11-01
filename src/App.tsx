@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Code, Cpu, Globe, Menu, X, Music, Hexagon, Facebook, Instagram, Twitter } from 'lucide-react'; // Import icons
 import Loading from './Loading'; // Import the Loading component
 import BinaryBackground from './BinaryBackground'; // Ensure this is defined elsewhere
+import Blog from './Blog'; // Import the new Blog component
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a href={href} className="text-white hover:text-neon-blue transition-colors duration-300">
